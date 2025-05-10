@@ -1,0 +1,15 @@
+{
+  "name": "산으로간 고등어",
+  "short_name": "산간고",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#f05a28",
+  "icons": [
+    {
+      "src": "images/ssgicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+} 
