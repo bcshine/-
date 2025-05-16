@@ -127,12 +127,13 @@ const App = {
 
     // 모바일 예약 버튼을 초기화해요
     initMobileReservation() {
-        this.addMobileReservationStyles();
-        this.updateMobileReservationButton();
+        // 모바일에서는 하단 예약 버튼을 만들지 않아요
+        // this.addMobileReservationStyles();
+        // this.updateMobileReservationButton();
 
-        window.addEventListener('resize', () => {
-            this.updateMobileReservationButton();
-        });
+        // window.addEventListener('resize', () => {
+        //     this.updateMobileReservationButton();
+        // });
     },
 
     // 모바일 예약 버튼 스타일을 추가해요
