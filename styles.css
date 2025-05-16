@@ -1,4 +1,39 @@
-/* General Styles */
+/* 웹사이트의 기본 스타일을 설정하는 파일이에요 */
+
+/* ===== 변수 설정 ===== */
+:root {
+    /* 색상 */
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+    --success-color: #28a745;
+    --success-hover: #218838;
+    --warning-color: #ffc107;
+    --text-color: #333;
+    --text-light: #666;
+    --bg-color: #fff;
+    --bg-light: #f8f9fa;
+    
+    /* 여백 */
+    --spacing-xs: 10px;
+    --spacing-sm: 15px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    --spacing-xl: 40px;
+    
+    /* 그림자 */
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
+    --shadow-md: 0 2px 10px rgba(0,0,0,0.1);
+    
+    /* 테두리 반경 */
+    --radius-sm: 5px;
+    --radius-md: 10px;
+    --radius-lg: 30px;
+    
+    /* 전환 효과 */
+    --transition: 0.3s;
+}
+
+/* ===== 기본 스타일 ===== */
 * {
     margin: 0;
     padding: 0;
@@ -8,27 +43,12 @@
 body {
     font-family: 'Noto Sans KR', sans-serif;
     line-height: 1.6;
-    color: #333;
-}
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-section {
-    padding: 80px 0;
-}
-
-h1, h2, h3 {
-    margin-bottom: 20px;
+    color: var(--text-color);
 }
 
 a {
     text-decoration: none;
-    color: #333;
+    color: inherit;
 }
 
 img {
@@ -36,389 +56,274 @@ img {
     height: auto;
 }
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ===== 버튼 스타일 ===== */
 .btn {
-    display: inline-block;
-    background-color: #f05a28;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-weight: bold;
-    transition: background-color 0.3s;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition);
 }
 
 .btn:hover {
-    background-color: #d04a18;
+    background-color: var(--primary-hover);
 }
 
-/* Navigation Bar */
+/* ===== 네비게이션 바 ===== */
 .navbar {
+    background-color: var(--bg-color);
+    box-shadow: var(--shadow-sm);
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    background-color: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    top: 0;
     z-index: 1000;
-    padding: 15px 0;
 }
 
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
 }
 
 .logo {
     display: flex;
     align-items: center;
+    gap: var(--spacing-xs);
 }
 
 .logo img {
     height: 50px;
-    margin-right: 10px;
+    width: auto;
 }
 
 .logo h1 {
     font-size: 1.5rem;
-    margin-bottom: 0;
+    font-weight: 700;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
+    gap: var(--spacing-lg);
 }
 
-.nav-menu li {
-    margin-left: 20px;
-}
-
-.nav-menu a {
-    font-weight: 500;
-    padding: 8px 0;
-    position: relative;
-}
-
-.nav-menu a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #f05a28;
-    transition: width 0.3s;
-}
-
-.nav-menu a:hover::after {
-    width: 100%;
+.nav-menu a:hover {
+    color: var(--primary-color);
 }
 
 .menu-toggle {
     display: none;
-    cursor: pointer;
 }
 
-.hamburger {
-    font-size: 24px;
-}
-
-/* Hero Section */
+/* ===== 히어로 영역 ===== */
 .hero {
-    height: 100vh;
-    background-image: url('images/ssgghero3.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/ssgghero1.jpg');
     background-size: cover;
     background-position: center;
+    height: 100vh;
     display: flex;
     align-items: center;
     text-align: center;
-    color: white;
-    margin-top: 70px;
+    color: var(--bg-color);
+    margin-top: 80px;
 }
 
 .hero h1 {
-    font-size: 5.5rem;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 4rem;
+    margin-bottom: var(--spacing-md);
 }
 
 .hero p {
     font-size: 1.5rem;
-    max-width: 600px;
-    margin: 0 auto;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Restaurant and Sidedish Sections */
-.restaurant, .sidedish {
-    background-color: #f9f9f9;
+/* ===== 섹션 공통 스타일 ===== */
+section {
+    padding: var(--spacing-xl) 0;
 }
 
-.restaurant h2, .sidedish h2 {
+section h2 {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: var(--spacing-xl);
+    font-size: 2rem;
 }
 
+/* ===== 매장 사진 ===== */
 .store-image {
-    margin-bottom: 40px;
-    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    border-radius: var(--radius-md);
+    overflow: hidden;
 }
 
-.store-image img {
-    max-height: 500px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.sidedish .store-image img {
-    height: 400px;
-    width: auto;
-    object-fit: cover;
-}
-
+/* ===== 메뉴 목록 ===== */
 .menu-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
 }
 
 .menu-item {
-    background-color: white;
-    border-radius: 8px;
+    background: var(--bg-color);
+    border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition);
 }
 
 .menu-item:hover {
     transform: translateY(-5px);
 }
 
-.menu-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.menu-item h3 {
-    padding: 15px 15px 0;
-    font-size: 1.2rem;
-}
-
-.menu-item p {
-    padding: 0 15px 15px;
-    color: #666;
+.menu-item h3, .menu-item p {
+    padding: var(--spacing-sm);
 }
 
 .buy-btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #f05a28;
-    color: white;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    margin: var(--spacing-sm);
+    transition: background-color var(--transition);
 }
 
 .buy-btn:hover {
-    background-color: #d04a18;
+    background-color: var(--primary-hover);
 }
 
-/* Reviews Section */
-.reviews {
-    background-color: #fff;
-}
-
-.reviews h2 {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
+/* ===== 후기 목록 ===== */
 .review-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
 }
 
 .review-item {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    animation: fadeIn 0.5s forwards;
+    background: var(--bg-color);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
 }
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-.review-item:nth-child(1) { animation-delay: 0.1s; }
-.review-item:nth-child(2) { animation-delay: 0.2s; }
-.review-item:nth-child(3) { animation-delay: 0.3s; }
-.review-item:nth-child(4) { animation-delay: 0.4s; }
-.review-item:nth-child(5) { animation-delay: 0.5s; }
-.review-item:nth-child(6) { animation-delay: 0.6s; }
-.review-item:nth-child(7) { animation-delay: 0.7s; }
-.review-item:nth-child(8) { animation-delay: 0.8s; }
-.review-item:nth-child(9) { animation-delay: 0.9s; }
 
 .stars {
-    color: #f05a28;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    color: var(--warning-color);
+    margin-bottom: var(--spacing-xs);
 }
 
 .reviewer {
     display: block;
-    text-align: right;
+    margin-top: var(--spacing-xs);
     font-style: italic;
-    margin-top: 10px;
+    color: var(--text-light);
 }
 
-/* Philosophy Section */
-.philosophy {
-    background-color: #f9f9f9;
-}
-
-.philosophy h2 {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
+/* ===== 기업철학 ===== */
 .philosophy-content {
-    max-width: 800px;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
 }
 
 .brand-intro, .brand-history {
-    margin-bottom: 30px;
+    background: var(--bg-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
 }
 
-/* Owner Section */
+/* ===== 사장님 소개 ===== */
 .owner {
-    background-color: #fff;
+    background-color: var(--bg-light);
 }
 
 .owner .container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
     align-items: center;
-    gap: 40px;
-}
-
-.owner-image {
-    flex: 1;
 }
 
 .owner-image img {
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
 }
 
-.owner-message {
-    flex: 1;
-}
-
-/* Contact Section */
-.contact {
-    background-color: #f9f9f9;
-}
-
-.contact h2 {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
+/* ===== 연락처 ===== */
 .contact-info {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-bottom: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
 }
 
 .info-item {
     display: flex;
     align-items: center;
+    gap: var(--spacing-xs);
 }
 
 .info-item i {
-    margin-right: 10px;
-    color: #f05a28;
-    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-size: 1.5rem;
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-top: 30px;
+    gap: var(--spacing-md);
 }
 
 .social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background-color: #f05a28;
-    color: white;
-    border-radius: 50%;
-    transition: background-color 0.3s;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: color var(--transition);
 }
 
 .social-link:hover {
-    background-color: #d04a18;
+    color: var(--primary-color);
 }
 
-/* Chatbot */
-.chatbot {
+/* ===== 챗봇 ===== */
+.chatbot-btn {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
     z-index: 1000;
 }
 
-.chatbot-btn {
-    background-color: #f05a28;
-    color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 15px 25px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.chatbot-btn:hover {
-    background-color: #d04a18;
-    transform: scale(1.05);
-}
-
 .chatbot-window {
-    position: absolute;
-    bottom: 60px;
-    right: 0;
-    width: 340px;
-    max-width: 90vw;
-    height: 420px;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    position: fixed;
+    bottom: 80px;
+    right: var(--spacing-md);
+    width: 350px;
+    height: 500px;
+    background: var(--bg-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    animation: fadeIn 0.2s;
+    z-index: 1000;
 }
 
 .chatbot-header {
-    background: #f05a28;
-    color: #fff;
-    padding: 14px 16px;
-    font-weight: bold;
+    background: var(--primary-color);
+    color: var(--bg-color);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -427,156 +332,92 @@ img {
 .chatbot-close {
     background: none;
     border: none;
-    color: #fff;
+    color: var(--bg-color);
     font-size: 1.5rem;
     cursor: pointer;
 }
 
 .chatbot-messages {
-    flex: 1;
-    padding: 16px;
+    flex-grow: 1;
+    padding: var(--spacing-sm);
     overflow-y: auto;
-    background: #f9f9f9;
-    font-size: 1rem;
-}
-
-.chatbot-message {
-    margin-bottom: 12px;
-    display: flex;
-    flex-direction: column;
-}
-
-.chatbot-message.user {
-    align-items: flex-end;
-}
-
-.chatbot-message.bot {
-    align-items: flex-start;
-}
-
-.chatbot-bubble {
-    display: inline-block;
-    padding: 10px 16px;
-    border-radius: 18px;
-    margin-bottom: 2px;
-    max-width: 80%;
-    word-break: break-word;
-}
-
-.chatbot-message.user .chatbot-bubble {
-    background: #f05a28;
-    color: #fff;
-    border-bottom-right-radius: 4px;
-}
-
-.chatbot-message.bot .chatbot-bubble {
-    background: #eee;
-    color: #222;
-    border-bottom-left-radius: 4px;
 }
 
 .chatbot-input-area {
     display: flex;
+    padding: var(--spacing-sm);
     border-top: 1px solid #eee;
-    background: #fff;
 }
 
 .chatbot-input {
-    flex: 1;
-    border: none;
-    padding: 12px;
-    font-size: 1rem;
-    outline: none;
-    background: #fff;
+    flex-grow: 1;
+    padding: var(--spacing-xs);
+    border: 1px solid #ddd;
+    border-radius: var(--radius-sm);
+    margin-right: var(--spacing-xs);
 }
 
 .chatbot-send {
-    background: #f05a28;
-    color: #fff;
-    border: none;
-    padding: 0 18px;
-    font-size: 1rem;
+    background: var(--primary-color);
+    color: var(--bg-color);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-sm);
     cursor: pointer;
-    border-radius: 0 0 16px 0;
-    transition: background 0.2s;
 }
 
-.chatbot-send:hover {
-    background: #d04a18;
-}
-
-/* Responsive Styles */
-@media (max-width: 1024px) {
-    .menu-list, .review-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
+/* ===== 반응형 스타일 ===== */
 @media (max-width: 768px) {
-    section {
-        padding: 60px 0;
-    }
-    
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .hero p {
-        font-size: 1.2rem;
-    }
-    
     .menu-toggle {
         display: block;
+        cursor: pointer;
     }
-    
-    .nav-menu {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background-color: white;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: left 0.3s;
-    }
-    
-    .nav-menu.active {
-        left: 0;
-    }
-    
-    .nav-menu li {
-        margin: 15px 0;
-    }
-    
-    .owner .container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .contact-info {
-        grid-template-columns: 1fr;
-    }
-}
 
-@media (max-width: 576px) {
-    .menu-list, .review-list {
-        grid-template-columns: 1fr;
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-color);
+        padding: var(--spacing-md);
+        box-shadow: var(--shadow-sm);
     }
-    
+
+    .nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
     .reservation {
         display: none;
     }
-    
-    .logo h1 {
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
         font-size: 1.2rem;
     }
-    
-    .chatbot-window {
-        width: 98vw;
-        right: -10px;
-        height: 60vh;
-        min-height: 320px;
+
+    section {
+        padding: var(--spacing-xl) 0;
     }
+
+    .chatbot-window {
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+    }
+}
+
+/* 메뉴 카드 안의 이미지를 모두 같은 크기로 맞춰요 */
+.menu-item img {
+    width: 100%; /* 카드의 너비에 맞게 이미지를 늘려요 */
+    height: 200px; /* 높이를 고정해서 모두 똑같이 보여요 */
+    object-fit: cover; /* 이미지를 잘라서 빈 공간 없이 채워요 */
+    display: block;
 } 
