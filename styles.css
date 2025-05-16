@@ -3,8 +3,8 @@
 /* ===== 변수 설정 ===== */
 :root {
     /* 색상 */
-    --primary-color: #007bff;
-    --primary-hover: #0056b3;
+    --primary-color: #007bfff7;
+    --primary-hover: #0057b3e5;
     --success-color: #28a745;
     --success-hover: #218838;
     --warning-color: #ffc107;
@@ -420,4 +420,12 @@ section h2 {
     height: 200px; /* 높이를 고정해서 모두 똑같이 보여요 */
     object-fit: cover; /* 이미지를 잘라서 빈 공간 없이 채워요 */
     display: block;
+}
+
+.sidedish .store-image img {
+    width: 100%; /* 가로로 꽉 차게 */
+    height: 350px; /* 세로도 어느 정도 크게 */
+    object-fit: cover; /* 비율 유지하며 꽉 채우기 */
+    display: block;
+    border-radius: var(--radius-md);
 } 
