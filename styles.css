@@ -389,8 +389,16 @@ section h2 {
         gap: var(--spacing-sm);
     }
 
+    .navbar .container {
+        flex-wrap: wrap;
+    }
+    .menu-toggle, .reservation {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+    }
     .reservation {
-        display: none;
+        margin-left: var(--spacing-xs);
     }
 
     .hero h1 {
